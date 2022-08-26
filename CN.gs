@@ -32,108 +32,127 @@ function system_sheet() {
     }
 }
 
+function getFirstEmptyRow() {
+  var spr = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Catalogo");
+  var column = spr.getRange('A:A');
+  var values = column.getValues(); // get all data in one call
+  var ct = 0;
+  while ( values[ct][0] != "" ) {
+    ct++;
+  }
+  return (ct);
+}
+
 function cataloga() {
   var source = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Input Sheet");
   var destination = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Catalogo");
-  source.getRange("D3").copyTo(destination.getRange(2,1),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
-  source.getRange("D3").setValue("")
-  source.getRange("G3:H3").getMergedRanges()[0].copyTo(destination.getRange(2,2),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  row = getFirstEmptyRow()
+  row += 1
+  source.getRange("D3").copyTo(destination.getRange(row,1),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D3").setValue(source.getRange("D3").getValue()+1)
+  source.getRange("G3:H3").getMergedRanges()[0].copyTo(destination.getRange(row,2),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G3:H3").getMergedRanges()[0].setValue("")
-  source.getRange("K3").copyTo(destination.getRange(2,3),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K3").copyTo(destination.getRange(row,3),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K3").setValue("")
-  source.getRange("N3").copyTo(destination.getRange(2,4),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N3").copyTo(destination.getRange(row,4),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N3").setValue("")
-  source.getRange("D5:D6").copyTo(destination.getRange(2,5),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D5:D6").copyTo(destination.getRange(row,5),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D5:D6").setValue("")
-  source.getRange("D7").copyTo(destination.getRange(2,6),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D7").copyTo(destination.getRange(row,6),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D7").setValue("")
-  source.getRange("D8").copyTo(destination.getRange(2,7),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D8").copyTo(destination.getRange(row,7),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D8").setValue("")
-  source.getRange("G5:H6").copyTo(destination.getRange(2,8),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G5:H6").copyTo(destination.getRange(row,8),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G5:H6").setValue("")
-  source.getRange("G7:H7").copyTo(destination.getRange(2,9),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G7:H7").copyTo(destination.getRange(row,9),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G7:H7").setValue("")
-  source.getRange("G8:H8").copyTo(destination.getRange(2,10),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G8:H8").copyTo(destination.getRange(row,10),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G8:H8").setValue("")
-  source.getRange("K5:K6").copyTo(destination.getRange(2,11),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K5:K6").copyTo(destination.getRange(row,11),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K5:K6").setValue("")
-  source.getRange("K7").copyTo(destination.getRange(2,12),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K7").copyTo(destination.getRange(row,12),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K7").setValue("")
-  source.getRange("K8").copyTo(destination.getRange(2,13),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K8").copyTo(destination.getRange(row,13),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K8").setValue("")
-  source.getRange("D10:K11").copyTo(destination.getRange(2,14),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D10:K11").copyTo(destination.getRange(row,14),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D10:K11").setValue("")
-  source.getRange("D14:F14").copyTo(destination.getRange(2,15),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D14:F14").copyTo(destination.getRange(row,15),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D14:F14").setValue("")
-  source.getRange("D17").copyTo(destination.getRange(2,16),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D17").copyTo(destination.getRange(row,16),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D17").setValue("")
-  source.getRange("F17:G17").copyTo(destination.getRange(2,17),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("F17:G17").copyTo(destination.getRange(row,17),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("F17:G17").setValue("")
-  source.getRange("I14:K17").copyTo(destination.getRange(2,18),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("I14:K17").copyTo(destination.getRange(row,18),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("I14:K17").setValue("")
-  source.getRange("D19:K20").copyTo(destination.getRange(2,19),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D19:K20").copyTo(destination.getRange(row,19),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D19:K20").setValue("")
-  source.getRange("D23:F23").copyTo(destination.getRange(2,20),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D23:F23").copyTo(destination.getRange(row,20),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D23:F23").setValue("")
-  source.getRange("D25:F25").copyTo(destination.getRange(2,21),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D25:F25").copyTo(destination.getRange(row,21),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D25:F25").setValue("")
-  source.getRange("I23:K25").copyTo(destination.getRange(2,22),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("I23:K25").copyTo(destination.getRange(row,22),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("I23:K25").setValue("")
-  source.getRange("D27").copyTo(destination.getRange(2,23),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D27").copyTo(destination.getRange(row,23),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D27").setValue("")
-  source.getRange("D28").copyTo(destination.getRange(2,24),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D28").copyTo(destination.getRange(row,24),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D28").setValue("")
-  source.getRange("D29").copyTo(destination.getRange(2,25),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D29").copyTo(destination.getRange(row,25),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D29").setValue("")
-  source.getRange("G27:H27").copyTo(destination.getRange(2,26),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G27:H27").copyTo(destination.getRange(row,26),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G27:H27").setValue("")
-  source.getRange("G28:H28").copyTo(destination.getRange(2,27),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G28:H28").copyTo(destination.getRange(row,27),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G28:H28").setValue("")
-  source.getRange("G29:H29").copyTo(destination.getRange(2,28),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G29:H29").copyTo(destination.getRange(row,28),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G29:H29").setValue("")
-  source.getRange("K27").copyTo(destination.getRange(2,29),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K27").copyTo(destination.getRange(row,29),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K27").setValue("")
-  source.getRange("K28").copyTo(destination.getRange(2,30),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K28").copyTo(destination.getRange(row,30),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K28").setValue("")
-  source.getRange("K29").copyTo(destination.getRange(2,31),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K29").copyTo(destination.getRange(row,31),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K29").setValue("")
-  source.getRange("N5:N6").copyTo(destination.getRange(2,32),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N5:N6").copyTo(destination.getRange(row,32),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N5:N6").setValue("")
-  source.getRange("N7").copyTo(destination.getRange(2,33),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N7").copyTo(destination.getRange(row,33),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N7").setValue("")
-  source.getRange("N8").copyTo(destination.getRange(2,34),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N8").copyTo(destination.getRange(row,34),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N8").setValue("")
-  source.getRange("N9").copyTo(destination.getRange(2,35),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N9").copyTo(destination.getRange(row,35),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N9").setValue("")
-  source.getRange("N12:N13").copyTo(destination.getRange(2,36),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N12:N13").copyTo(destination.getRange(row,36),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N12:N13").setValue("")
-  source.getRange("N14").copyTo(destination.getRange(2,37),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N14").copyTo(destination.getRange(row,37),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N14").setValue("")
-  source.getRange("N15:N16").copyTo(destination.getRange(2,38),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N15:N16").copyTo(destination.getRange(row,38),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N15:N16").setValue("")
-  source.getRange("N17").copyTo(destination.getRange(2,39),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N17").copyTo(destination.getRange(row,39),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N17").setValue("")
-  source.getRange("N19").copyTo(destination.getRange(2,40),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N19").copyTo(destination.getRange(row,40),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N19").setValue("")
-  source.getRange("N20").copyTo(destination.getRange(2,41),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N20").copyTo(destination.getRange(row,41),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N20").setValue("")
-  source.getRange("N21:N22").copyTo(destination.getRange(2,42),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N21:N22").copyTo(destination.getRange(row,42),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N21:N22").setValue("")
-  source.getRange("N23").copyTo(destination.getRange(2,43),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N23").copyTo(destination.getRange(row,43),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N23").setValue("")
-  source.getRange("N26").copyTo(destination.getRange(2,44),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N26").copyTo(destination.getRange(row,44),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N26").setValue("")
-  source.getRange("N28").copyTo(destination.getRange(2,45),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N28").copyTo(destination.getRange(row,45),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N28").setValue("")
-  source.getRange("N29").copyTo(destination.getRange(2,46),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N29").copyTo(destination.getRange(row,46),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N29").setValue("")
 }
 
 function aggiornaimport() {
   var destination = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Interfaccia Bello");
   var source = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Catalogo");
-  var cell = destination.getRange("D3")
-  var row = Number(destination.getRange("D3").getValue())+1;
+  var number = destination.getRange("D3").getValue();
+  for (var i = 2;i<=source.getMaxRows();i = i+1)  {
+    check = source.getRange(i,1).getValue();
+    if(check == number) {
+      row = number
+      break;
+    }
+  }
   source.getRange(row,1).copyTo(destination.getRange("D3"),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange(row,2).copyTo(destination.getRange("G3:H3").getMergedRanges()[0],SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange(row,3).copyTo(destination.getRange("K3"),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
@@ -185,98 +204,105 @@ function aggiornaimport() {
 function aggiornabottone()  {
   var source = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Interfaccia Bello");
   var destination = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Catalogo");
-  row = source.getRange("D3").getValue();
-  source.getRange("D3").copyTo(destination.getRange(2,1),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  var number = source.getRange("D3").getValue();
+  for (var i = 2;i<=destination.getMaxRows();i = i+1)  {
+    check = destination.getRange(i,1).getValue();
+    if(check == number) {
+      row = number
+      break;
+    }
+  }
+  source.getRange("D3").copyTo(destination.getRange(row,1),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D3").setValue("")
-  source.getRange("G3:H3").getMergedRanges()[0].copyTo(destination.getRange(2,2),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G3:H3").getMergedRanges()[0].copyTo(destination.getRange(row,2),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G3:H3").getMergedRanges()[0].setValue("")
-  source.getRange("K3").copyTo(destination.getRange(2,3),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K3").copyTo(destination.getRange(row,3),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K3").setValue("")
-  source.getRange("N3").copyTo(destination.getRange(2,4),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N3").copyTo(destination.getRange(row,4),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N3").setValue("")
-  source.getRange("D5:D6").copyTo(destination.getRange(2,5),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D5:D6").copyTo(destination.getRange(row,5),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D5:D6").setValue("")
-  source.getRange("D7").copyTo(destination.getRange(2,6),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D7").copyTo(destination.getRange(row,6),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D7").setValue("")
-  source.getRange("D8").copyTo(destination.getRange(2,7),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D8").copyTo(destination.getRange(row,7),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D8").setValue("")
-  source.getRange("G5:H6").copyTo(destination.getRange(2,8),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G5:H6").copyTo(destination.getRange(row,8),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G5:H6").setValue("")
-  source.getRange("G7:H7").copyTo(destination.getRange(2,9),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G7:H7").copyTo(destination.getRange(row,9),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G7:H7").setValue("")
-  source.getRange("G8:H8").copyTo(destination.getRange(2,10),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G8:H8").copyTo(destination.getRange(row,10),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G8:H8").setValue("")
-  source.getRange("K5:K6").copyTo(destination.getRange(2,11),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K5:K6").copyTo(destination.getRange(row,11),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K5:K6").setValue("")
-  source.getRange("K7").copyTo(destination.getRange(2,12),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K7").copyTo(destination.getRange(row,12),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K7").setValue("")
-  source.getRange("K8").copyTo(destination.getRange(2,13),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K8").copyTo(destination.getRange(row,13),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K8").setValue("")
-  source.getRange("D10:K11").copyTo(destination.getRange(2,14),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D10:K11").copyTo(destination.getRange(row,14),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D10:K11").setValue("")
-  source.getRange("D14:F14").copyTo(destination.getRange(2,15),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D14:F14").copyTo(destination.getRange(row,15),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D14:F14").setValue("")
-  source.getRange("D17").copyTo(destination.getRange(2,16),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D17").copyTo(destination.getRange(row,16),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D17").setValue("")
-  source.getRange("F17:G17").copyTo(destination.getRange(2,17),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("F17:G17").copyTo(destination.getRange(row,17),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("F17:G17").setValue("")
-  source.getRange("I14:K17").copyTo(destination.getRange(2,18),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("I14:K17").copyTo(destination.getRange(row,18),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("I14:K17").setValue("")
-  source.getRange("D19:K20").copyTo(destination.getRange(2,19),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D19:K20").copyTo(destination.getRange(row,19),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D19:K20").setValue("")
-  source.getRange("D23:F23").copyTo(destination.getRange(2,20),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D23:F23").copyTo(destination.getRange(row,20),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D23:F23").setValue("")
-  source.getRange("D25:F25").copyTo(destination.getRange(2,21),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D25:F25").copyTo(destination.getRange(row,21),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D25:F25").setValue("")
-  source.getRange("I23:K25").copyTo(destination.getRange(2,22),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("I23:K25").copyTo(destination.getRange(row,22),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("I23:K25").setValue("")
-  source.getRange("D27").copyTo(destination.getRange(2,23),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D27").copyTo(destination.getRange(row,23),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D27").setValue("")
-  source.getRange("D28").copyTo(destination.getRange(2,24),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D28").copyTo(destination.getRange(row,24),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D28").setValue("")
-  source.getRange("D29").copyTo(destination.getRange(2,25),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("D29").copyTo(destination.getRange(row,25),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("D29").setValue("")
-  source.getRange("G27:H27").copyTo(destination.getRange(2,26),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G27:H27").copyTo(destination.getRange(row,26),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G27:H27").setValue("")
-  source.getRange("G28:H28").copyTo(destination.getRange(2,27),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G28:H28").copyTo(destination.getRange(row,27),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G28:H28").setValue("")
-  source.getRange("G29:H29").copyTo(destination.getRange(2,28),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("G29:H29").copyTo(destination.getRange(row,28),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("G29:H29").setValue("")
-  source.getRange("K27").copyTo(destination.getRange(2,29),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K27").copyTo(destination.getRange(row,29),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K27").setValue("")
-  source.getRange("K28").copyTo(destination.getRange(2,30),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K28").copyTo(destination.getRange(row,30),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K28").setValue("")
-  source.getRange("K29").copyTo(destination.getRange(2,31),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("K29").copyTo(destination.getRange(row,31),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("K29").setValue("")
-  source.getRange("N5:N6").copyTo(destination.getRange(2,32),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N5:N6").copyTo(destination.getRange(row,32),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N5:N6").setValue("")
-  source.getRange("N7").copyTo(destination.getRange(2,33),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N7").copyTo(destination.getRange(row,33),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N7").setValue("")
-  source.getRange("N8").copyTo(destination.getRange(2,34),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N8").copyTo(destination.getRange(row,34),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N8").setValue("")
-  source.getRange("N9").copyTo(destination.getRange(2,35),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N9").copyTo(destination.getRange(row,35),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N9").setValue("")
-  source.getRange("N12:N13").copyTo(destination.getRange(2,36),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N12:N13").copyTo(destination.getRange(row,36),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N12:N13").setValue("")
-  source.getRange("N14").copyTo(destination.getRange(2,37),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N14").copyTo(destination.getRange(row,37),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N14").setValue("")
-  source.getRange("N15:N16").copyTo(destination.getRange(2,38),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N15:N16").copyTo(destination.getRange(row,38),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N15:N16").setValue("")
-  source.getRange("N17").copyTo(destination.getRange(2,39),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N17").copyTo(destination.getRange(row,39),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N17").setValue("")
-  source.getRange("N19").copyTo(destination.getRange(2,40),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N19").copyTo(destination.getRange(row,40),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N19").setValue("")
-  source.getRange("N20").copyTo(destination.getRange(2,41),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N20").copyTo(destination.getRange(row,41),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N20").setValue("")
-  source.getRange("N21:N22").copyTo(destination.getRange(2,42),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N21:N22").copyTo(destination.getRange(row,42),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N21:N22").setValue("")
-  source.getRange("N23").copyTo(destination.getRange(2,43),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N23").copyTo(destination.getRange(row,43),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N23").setValue("")
-  source.getRange("N26").copyTo(destination.getRange(2,44),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N26").copyTo(destination.getRange(row,44),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N26").setValue("")
-  source.getRange("N28").copyTo(destination.getRange(2,45),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N28").copyTo(destination.getRange(row,45),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N28").setValue("")
-  source.getRange("N29").copyTo(destination.getRange(2,46),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
+  source.getRange("N29").copyTo(destination.getRange(row,46),SpreadsheetApp.CopyPasteType.PASTE_VALUES,false);
   source.getRange("N29").setValue("")
 }
 
